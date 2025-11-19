@@ -1,0 +1,142 @@
+﻿/* Tratamientos a pantalla completa por secciones */
+:host, .tratamientos { font-family: var(--menu-font); }
+
+.tratamientos { padding: 0; color: #0f172a; }
+.title { text-align: center; margin: 18px 0 10px; color: #1e3a8a; letter-spacing: .3px; }
+
+/* Bandas full-bleed */
+.band {
+  width: 100vw;             /* ocupa todo el ancho de la ventana */
+  margin-left: 50%;         /* centrado del truco */
+  transform: translateX(-50%);
+  color: #ffffff;
+  position: relative;
+}
+.band + .band { margin-top: 0; }
+
+.band-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 16px;       /* espacio interno base */
+}
+
+.band-title { margin: 0 0 10px; font-size: clamp(1.25rem, 2.4vw, 1.6rem); font-weight: 700; }
+.band-text { margin: 0; line-height: 1.6; font-weight: 500; }
+
+/* Fondos de ejemplo (puedes cambiarlos por imágenes) */
+.band--1 {
+  background:
+    linear-gradient(180deg, rgba(13,58,134,.75), rgba(30,90,168,.75)),
+    linear-gradient(135deg, #0d3a86 0%, #1e5aa8 100%);
+}
+
+.band--general {
+  /* Azul medio con toque teal: consistente con paleta */
+  background:
+    linear-gradient(180deg, rgba(12,74,110,.78), rgba(17,94,140,.78)),
+    linear-gradient(135deg, #0c4a6e 0%, #116199 100%);
+}
+
+.band--invasiva {
+  /* Azul profundo / navy para diferenciar invasiva */
+  background:
+    linear-gradient(180deg, rgba(15,23,42,.68), rgba(30,58,112,.74)),
+    linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+}
+
+.band--pilates {
+  /* Azul claro brillante dentro de la paleta */
+  background:
+    linear-gradient(180deg, rgba(13,58,134,.78), rgba(30,90,168,.78)),
+    linear-gradient(135deg, #0d3a86 0%, #1e5aa8 100%);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .band-inner { padding: 36px 14px; }
+}
+@media (max-width: 600px) {
+  .title { margin: 14px 0 6px; }
+  .band-inner { padding: 28px 12px; }
+  .band-title { font-size: 1.2rem; }
+}
+
+/* Índice de tratamientos */
+.index { width: 100vw; margin-left: 50%; transform: translateX(-50%); padding: 8px 16px; margin-bottom: 12px; }
+.index-list { list-style: none; padding: 0; margin: 0 0 10px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.index-list a { display: block; text-decoration: none; color: var(--menu-text); background: var(--menu-bg); padding: 8px 14px; border-radius: 999px; box-shadow: var(--menu-btn-shadow); transition: background .2s ease, transform .2s ease; }
+.index-list a:hover { background: var(--menu-btn-active); transform: translateY(-1px); }
+
+/* Evitar que el menú tape el ancla */
+.band { scroll-margin-top: 72px; }
+
+@media (max-width: 600px) {
+  .index { padding: 0 12px; }
+  .index-list { gap: 8px; }
+  .index-list a { padding: 8px 12px; }
+}
+
+/* Índice sticky */
+.index {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(246, 249, 255, 0.85);
+  backdrop-filter: saturate(110%) blur(2px);
+  -webkit-backdrop-filter: saturate(110%) blur(2px);
+}
+
+/* Listas dentro de cada grupo */
+.group-list {
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.group-list li { display: contents; }
+.chip {
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.28);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 999px;
+  box-shadow: 0 2px 10px rgba(2,6,23,.12);
+  font-weight: 700;
+  cursor: pointer;
+}
+.chip:hover { background: rgba(255,255,255,.24); transform: translateY(-1px); }
+.chip.active { background: rgba(255,255,255,.32); border-color: rgba(255,255,255,.5); }
+
+.detail {
+  margin-top: 14px;
+  background: rgba(255,255,255,.09);
+  border: 1px solid rgba(255,255,255,.24);
+  border-radius: 12px;
+  padding: 14px;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(2,6,23,.18);
+  animation: route-slide-down 1300ms ease-out both;
+  will-change: opacity, transform;
+}
+.detail-grid { display: grid; grid-template-columns: 360px 1fr; gap: 14px; align-items: center; }
+.detail-photo { width: 100%; aspect-ratio: 4 / 3; border-radius: 12px; background:
+  linear-gradient(135deg, rgba(58,142,246,.18), rgba(30,64,175,.18)),
+  repeating-linear-gradient(45deg, rgba(255,255,255,.08) 0 6px, transparent 6px 12px);
+  border: 1px solid rgba(255,255,255,.22);
+}
+.detail-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block; }
+.detail-info { padding: 4px 2px; }
+.detail-title { margin: 0 0 6px; font-size: 1.05rem; }
+.detail-text { margin: 0; line-height: 1.6; }
+
+@media (max-width: 900px) {
+  .detail-grid { grid-template-columns: 1fr; }
+  .detail-photo { aspect-ratio: 3 / 2; max-width: 640px; margin: 0 auto; }
+  .detail-info { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detail { animation: none; }
+}

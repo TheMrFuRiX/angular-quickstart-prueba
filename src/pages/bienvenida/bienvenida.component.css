@@ -1,0 +1,88 @@
+:host { display: block; }
+
+.hero {
+  position: relative;
+  min-height: clamp(520px, 80vh, 760px);
+  isolation: isolate;
+  overflow: hidden;
+  color: #fff;
+  font-family: var(--menu-font);
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('../../assets/FondoBienvenida.jpeg') center/cover no-repeat fixed;
+  transform: scale(1.02);
+  filter: saturate(105%);
+}
+.hero::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(6, 28, 71, .65), rgba(6, 28, 71, .35) 50%, rgba(6, 28, 71, .8));
+}
+.hero-inner {
+  position: relative; z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 16px;
+  display: grid;
+  align-content: center;
+  gap: 18px;
+  text-align: left;
+}
+
+.hero-title { margin: 0; font-weight: 800; letter-spacing: .3px; font-size: clamp(2rem, 4.8vw, 3.2rem); }
+.hero-sub { margin: 0; font-size: clamp(1rem, 2.2vw, 1.25rem); opacity: .95; }
+
+.hero-cta { display: flex; gap: 12px; margin-top: 6px; }
+.btn { display: inline-block; text-decoration: none; font-weight: 700; padding: 12px 16px; border-radius: 12px; transition: transform .15s ease, background .15s ease, color .15s ease;  border: 0; cursor: pointer; }
+.btn.primary { background: var(--menu-btn-active); color: #fff; }
+.btn.primary:hover { transform: translateY(-1px); }
+.btn.ghost { background: rgba(255,255,255,.12); color: #fff; backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); }
+.btn.ghost:hover { background: rgba(255,255,255,.22); transform: translateY(-1px); }
+
+/* Asegurar misma fuente que el resto del texto para botones nativos */
+button.btn { font-family: inherit; }
+
+.schedule { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; padding: 8px 12px; border-radius: 999px; background: rgba(255,255,255,.14); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); font-weight: 600; }
+/* Azul corporativo para el punto indicador */
+.schedule .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--menu-btn-active); box-shadow: 0 0 0 2px rgba(17,79,168,.35); }
+
+/* Detalle de horarios (Lunes-Jueves y Viernes): sin punto e indentados */
+.schedule.detail { margin-left: 12px; }
+.schedule.detail .dot { display: none; }
+
+.note { margin-top: 6px; }
+
+.highlights { padding: 26px 16px 40px; background: #f6f9ff; color: #0f172a; font-family: var(--menu-font); }
+.container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.item { background: #fff; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(2, 6, 23, .06); }
+.item h3 { margin: 0 0 6px; font-size: 1.05rem; color: #1e3a8a; }
+.item p { margin: 0; opacity: .9; }
+.actions { margin-top: 16px; text-align: center; }
+
+@media (max-width: 900px) {
+  .hero-inner { padding: 48px 14px; }
+  .hero-cta { flex-wrap: wrap; }
+  .container { grid-template-columns: 1fr; }
+}
+
+/* Sección: Enfermedades que tratamos */
+.conditions { background: #f6f9ff; color: #0f172a; padding: 8px 0 32px; font-family: var(--menu-font); }
+.conditions-inner { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+.conditions h3 { margin: 10px 0 12px; text-align: center; color: #1e3a8a; font-size: 1.2rem; }
+.condition-groups { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 20px; }
+.condition-group { background: #fff; border: 1px solid rgba(30, 64, 175, 0.12); border-radius: 16px; padding: 16px; box-shadow: 0 2px 8px rgba(2, 6, 23, .04); min-height: 100%; flex: 1 1 calc(33.333% - 16px); max-width: 320px; min-width: 240px; }
+.condition-group__header { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; }
+.condition-group__header h4 { margin: 0; font-size: 1rem; color: #1e3a8a; }
+.condition-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--menu-btn-active); box-shadow: 0 0 0 2px rgba(17, 79, 168, .35); flex-shrink: 0; }
+.condition-items { margin: 0; padding-left: 18px; color: #0f172a; line-height: 1.45; }
+.condition-items li { margin-bottom: 4px; font-weight: 500; }
+
+@media (max-width: 1024px) {
+  .condition-group { flex: 1 1 calc(50% - 16px); max-width: 360px; }
+}
+
+@media (max-width: 640px) {
+  .condition-group { flex: 1 1 100%; max-width: none; }
+}
+

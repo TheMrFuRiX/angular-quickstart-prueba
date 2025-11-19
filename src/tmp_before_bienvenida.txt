@@ -1,0 +1,6 @@
+﻿<section class="bienvenida">
+  <h1>Bienvenido a FISIOALCALA</h1>
+  <p>Tu bienestar fÃ­sico y recuperaciÃ³n son nuestra prioridad. Descubre nuestros tratamientos y equipo profesional.</p>
+</section>
+
+

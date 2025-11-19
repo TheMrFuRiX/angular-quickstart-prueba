@@ -1,0 +1,60 @@
+.cc-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  /* Azul del sitio, más transparente */
+  background: rgba(22, 93, 187, 0.88); /* ~ --menu-bg con alpha */
+  color: #fff;
+  box-shadow: 0 -2px 16px rgba(0,0,0,0.25);
+  /* Deja hueco a la derecha para el botón de WhatsApp (desktop) */
+  padding-right: 220px;
+}
+
+.cc-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  font-family: var(--menu-font);
+}
+
+.cc-text {
+  margin: 0;
+  line-height: 1.4;
+  flex: 1;
+  font-size: 0.9rem;
+  opacity: 0.95;
+  text-align: left;
+}
+
+.cc-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.cc-btn {
+  border: 1px solid transparent;
+  padding: 10px 14px;
+  border-radius: var(--menu-btn-radius);
+  cursor: pointer;
+  font-weight: 700;
+  font-family: var(--menu-font);
+  box-shadow: var(--menu-btn-shadow);
+}
+
+.cc-btn.accept { background: var(--menu-btn); color: #fff; border-color: var(--menu-btn); }
+.cc-btn.accept:hover { background: var(--menu-btn-active); border-color: var(--menu-btn-active); }
+.cc-btn.reject { background: transparent; color: #fff; border-color: rgba(255,255,255,.6); }
+.cc-btn.reject:hover { border-color: #fff; }
+
+@media (max-width: 900px) {
+  /* En móvil, coloca el banner justo encima del CTA de WhatsApp */
+  .cc-banner { padding-right: 16px; bottom: 68px; }
+  .cc-content { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .cc-actions { width: 100%; }
+}

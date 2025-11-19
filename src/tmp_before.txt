@@ -1,0 +1,35 @@
+﻿<nav class="menu">
+  <div class="brand">
+    <a class="brand-logo" routerLink="/" aria-label="Ir al inicio"><img src="assets/TemporalLogo.png" alt="FISIOALCALA" /></a>
+  </div>
+
+  <button
+    type="button"
+    class="menu-toggle"
+    (click)="toggleMenu()"
+    [attr.aria-expanded]="isOpen"
+    aria-controls="main-nav"
+    aria-label="Abrir menú"
+  >
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <ul id="main-nav" class="nav-list" [class.open]="isOpen">
+    <li>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()" class="home-link"><span class="nav-em">Inicio</span></a>
+    </li>
+    <li>
+      <a routerLink="/profesionales" routerLinkActive="active" (click)="closeMenu()"><span class="nav-em">Nuestros</span> Profesionales</a>
+    </li>
+    <li>
+      <a routerLink="/tratamientos" routerLinkActive="active" (click)="closeMenu()"><span class="nav-em">Nuestros</span> Tratamientos</a>
+    </li>
+    <li>
+      <a routerLink="/contacto" routerLinkActive="active" (click)="closeMenu()"><span class="nav-em">Contacta con Nosotros</span></a>
+    </li>
+  </ul>
+</nav>
+
+

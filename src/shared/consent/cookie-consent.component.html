@@ -1,0 +1,12 @@
+<div class="cc-banner" *ngIf="!consent.isDecided('maps')" role="dialog" aria-live="polite" aria-label="Aviso de cookies para Google Maps">
+  <div class="cc-content">
+    <p class="cc-text">
+      Usamos un mapa de Google Maps en la página de Contacto. Google puede establecer cookies de terceros cuando se carga el mapa. 
+      Puedes aceptar para visualizarlo o rechazar para mantenerlo bloqueado.
+    </p>
+    <div class="cc-actions">
+      <button class="cc-btn accept" (click)="accept()">Aceptar mapa</button>
+      <button class="cc-btn reject" (click)="reject()">Rechazar</button>
+    </div>
+  </div>
+</div>

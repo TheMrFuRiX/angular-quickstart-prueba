@@ -1,0 +1,67 @@
+:host { display: block; }
+
+.contacto {
+  background: #f6f9ff;
+  color: #0f172a;
+  font-family: var(--menu-font);
+  padding: 28px 16px 36px;
+}
+
+.contacto-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(2, 6, 23, .06);
+}
+
+.info h2 {
+  margin: 0 0 8px;
+  font-size: 1.6rem;
+  color: #1e3a8a;
+}
+
+.list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.list li { display: grid; grid-template-columns: 28px auto; gap: 10px; align-items: center; justify-content: center; justify-items: center; }
+.icon { width: 22px; height: 22px; fill: var(--menu-btn-active); opacity: .95; display: block; }
+/* Icono WhatsApp con círculo verde */
+.icon.whatsapp { width: 22px; height: 22px; border-radius: 0; padding: 0; background: none; object-fit: contain; }
+.text { display: grid; }
+.label { font-weight: 700; letter-spacing: .2px; }
+.value { opacity: .95; }
+.value a { color: #1e3a8a; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; line-height: 1; }
+.value a:hover { text-decoration: underline; }
+
+.map { aspect-ratio: 16 / 10; overflow: hidden; }
+.map iframe { width: 100%; height: 100%; display: block; border: 0; border-radius: 12px; }
+
+/* Placeholder cuando el mapa está bloqueado por cookies */
+.map-placeholder {
+  height: 100%;
+  min-height: 260px;
+  display: grid;
+  place-content: center;
+  gap: 12px;
+  text-align: center;
+  padding: 16px;
+  color: #0f172a;
+}
+
+.map-actions { display: inline-flex; gap: 10px; justify-content: center; }
+.btn { border: 1px solid #cbd5e1; background: #fff; color: #0f172a; border-radius: 8px; padding: 8px 12px; cursor: pointer; }
+.btn.primary { background: #1e3a8a; color: #fff; border-color: #1e3a8a; }
+
+@media (max-width: 900px) {
+  .contacto-inner { grid-template-columns: 1fr; }
+  .map { aspect-ratio: 16 / 12; }
+}
+
+/* (CTA WhatsApp global movida al app root) */
