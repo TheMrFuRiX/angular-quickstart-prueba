@@ -33,3 +33,32 @@ footer {
 footer img {
     width: 20px;
 }
+
+/* CTA fija WhatsApp (global) */
+.whatsapp-cta {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1200;
+  display: inline-grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: center; /* centra icono + texto dentro del botón */
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: #25D366;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  font-family: var(--menu-font);
+  letter-spacing: .2px;
+  box-shadow: 0 6px 16px rgba(37, 211, 102, .45), 0 2px 6px rgba(2, 6, 23, .25);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.whatsapp-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(37, 211, 102, .5), 0 2px 8px rgba(2, 6, 23, .3); }
+.w-icon { width: 20px; height: 20px; display: block; object-fit: contain; }
+
+@media (max-width: 900px) {
+  .whatsapp-cta { left: 12px; right: 12px; bottom: 12px; justify-content: center; }
+}

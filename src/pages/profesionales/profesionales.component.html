@@ -1,0 +1,44 @@
+﻿<section class="profesionales" role="region" aria-label="Carrusel de profesionales">
+  <h2 class="title">Nuestros Profesionales</h2>
+
+  <div class="carousel" tabindex="0" (keydown)="onKeydown($event)">
+    <button class="nav prev" (click)="prev()" aria-label="Anterior">&#10094;</button>
+
+    <div class="viewport">
+      <div
+        class="track"
+        [style.transform]="'translateX(-' + activeIndex * 100 + '%)'"
+        
+      >
+        <div class="slide" *ngFor="let prof of professionals; let i = index" [attr.aria-hidden]="i !== activeIndex">
+          <article class="card">
+            <div class="photo" [attr.aria-label]="prof.image ? 'Foto de ' + prof.name : 'Espacio reservado para la foto de ' + prof.name">
+              <img *ngIf="prof.image" [src]="prof.image" [alt]="'Foto de ' + prof.name" loading="lazy" [class.align-top]="prof.name === 'Daniel Toribio Cela'" />
+            </div>
+            <div class="info">
+              <h3 class="name">{{ prof.name }}</h3>
+              <p class="role">{{ prof.role }}</p>
+              <ul class="skills">
+                <li *ngFor="let s of prof.skills">{{ s }}</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <button class="nav next" (click)="next()" aria-label="Siguiente">&#10095;</button>
+  </div>
+
+  <div class="dots" role="tablist" aria-label="Paginación profesionales">
+    <button
+      *ngFor="let _ of professionals; let i = index"
+      class="dot"
+      [class.active]="i === activeIndex"
+      (click)="goTo(i)"
+      role="tab"
+      [attr.aria-selected]="i === activeIndex"
+      [attr.aria-label]="'Ir al profesional ' + (i + 1)"
+    ></button>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+<section class="contacto" aria-label="Contacta con nosotros">
+  <div class="contacto-inner">
+    <div class="info card">
+      <h2>Contacta con nosotros</h2>
+      <ul class="list">
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V21a1 1 0 01-1 1C10.85 22 2 13.15 2 2a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/></svg>
+          <div class="text"><span class="label">Teléfono fijo</span><span class="value"><a href="tel:+34918798058" aria-label="Llamar al +34 91 879 80 58">+34 91 879 80 58</a></span></div>
+        </li>
+        <li class="whatsapp">
+          <img src="assets/WhatsApp.svg.webp" alt="WhatsApp" class="icon whatsapp" />
+          <div class="text"><span class="label">Móvil y WhatsApp</span><span class="value"><a href="https://wa.me/34693418138" target="_blank" rel="noopener noreferrer" aria-label="Escribir WhatsApp al +34 693 418 138">+34 693 418 138</a></span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <div class="text"><span class="label">Email</span><span class="value"><a href="mailto:info@fisioalcala.com" aria-label="Enviar correo a info@fisioalcala.com">info@fisioalcala.com</a></span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M12 2C8.69 2 6 4.69 6 8c0 4.5 6 12 6 12s6-7.5 6-12c0-3.31-2.69-6-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z"/></svg>
+          <div class="text"><span class="label">Dirección</span><span class="value">Calle Ronda Fiscal Nº7 Local 4, 28803 Alcalá de Henares (Madrid)</span></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="map card" aria-label="Mapa">
+      <iframe *ngIf="mapsGranted"
+        width="100%"
+        height="100%"
+        style="border:0"
+        loading="lazy"
+        allowfullscreen
+        title="Mapa de ubicación"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3035.119896314927!2d-3.3720443887153944!3d40.47261247131154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd424905360736c1%3A0x550f4d89ff4dc1a6!2sFisioalcal%C3%A1!5e0!3m2!1ses!2ses!4v1761042751927!5m2!1ses!2ses">
+      </iframe>
+      <div *ngIf="!mapsGranted" class="map-placeholder" role="region" aria-label="Mapa bloqueado por cookies">
+        <p>
+          Para ver el mapa de Google necesitamos tu consentimiento para cookies de terceros.
+        </p>
+        <div class="map-actions">
+          <button class="btn primary" (click)="acceptMaps()">Aceptar y cargar el mapa</button>
+          <button class="btn" (click)="denyMaps()">Rechazar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

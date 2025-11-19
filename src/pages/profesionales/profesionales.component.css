@@ -1,0 +1,113 @@
+﻿/* Carousel de profesionales - simple responsive sin romper escritorio */
+:host, .profesionales { font-family: var(--menu-font); }
+
+.profesionales {
+  background: #f6f9ff;
+  color: #0f172a;
+  padding: 28px 16px 18px;
+}
+
+.title {
+  text-align: center;
+  margin: 0 0 14px;
+  letter-spacing: 0.3px;
+  color: #1e3a8a; /* azul más oscuro para titular */
+}
+
+/* Estructura principal: flechas a los lados, pista centrada */
+.carousel {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.viewport {
+  overflow: hidden;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.08);
+}
+
+.track { display: flex; transition: transform 420ms cubic-bezier(.2,.7,.2,1); will-change: transform; }
+.slide { flex: 0 0 100%; padding: 10px; box-sizing: border-box; display: flex; justify-content: center; }
+
+/* Tarjeta con foto y datos */
+.card {
+  width: min(880px, 100%);
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 18px;
+}
+
+.photo {
+  width: 100%;
+  aspect-ratio: 4 / 5; /* espacio para foto de cintura para arriba */
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(58,142,246,.15), rgba(30,64,175,.15)),
+    repeating-linear-gradient(45deg, rgba(15,23,42,.06) 0 6px, transparent 6px 12px);
+  border: 1px solid rgba(2, 6, 23, 0.06);
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
+}
+
+/* Ajuste específico para Daniel: prioriza mostrar la parte superior */
+.photo img.align-top {
+  /* Encadre intermedio: 20% vertical para evitar corte y exceso de aire */
+  object-position: center 20%;
+}
+
+.info { padding: 6px 2px; }
+.name { margin: 0 0 6px; font-size: 1.4rem; color: #0f172a; }
+.role { margin: 0 0 10px; color: #475569; font-weight: 600; }
+
+.skills { margin: 0; padding-left: 18px; color: #374151; line-height: 1.55; }
+.skills li { margin: 6px 0; }
+
+/* Flechas y paginación */
+.nav {
+  width: 42px; height: 42px; border-radius: 50%; border: 0; cursor: pointer;
+  display: grid; place-items: center; color: #ffffff;
+  background: #3a8ef6; box-shadow: 0 6px 14px rgba(58,142,246,0.35);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.nav:hover { transform: translateY(-1px); background: #2f7ae5; box-shadow: 0 8px 18px rgba(58,142,246,.45); }
+.nav:active { transform: translateY(0); }
+
+.dots { display: flex; justify-content: center; gap: 10px; margin-top: 12px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; border: 2px solid #3a8ef6; background: transparent; cursor: pointer; }
+.dot.active { background: #3a8ef6; }
+
+/* Responsive: tablet */
+@media (max-width: 900px) {
+  .card { grid-template-columns: 1fr; width: min(640px, 100%); padding: 14px; gap: 12px; }
+  .info { text-align: center; }
+  .skills { padding-left: 18px; display: inline-block; text-align: left; }
+  .photo { aspect-ratio: 3 / 4; max-width: 460px; margin: 0 auto; }
+  .nav { width: 38px; height: 38px; }
+  .carousel { gap: 10px; }
+}
+
+/* Responsive: móvil */
+@media (max-width: 600px) {
+  .profesionales { padding: 22px 10px 16px; }
+  .title { margin-bottom: 10px; }
+  .card { padding: 12px; gap: 10px; }
+  .name { font-size: 1.25rem; }
+  .role { font-size: 0.95rem; margin-bottom: 8px; }
+  .nav { width: 34px; height: 34px; }
+  .dots { gap: 12px; }
+  .dot { width: 12px; height: 12px; }
+}
+
