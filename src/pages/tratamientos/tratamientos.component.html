@@ -6,7 +6,6 @@
     <ul class="index-list">
       <li><a routerLink="/tratamientos" fragment="fisioterapia-general">Fisioterapia General</a></li>
       <li><a routerLink="/tratamientos" fragment="fisioterapia-invasiva">Fisioterapia Invasiva</a></li>
-      <li><a routerLink="/tratamientos" fragment="pilates-terapeutico">Pilates</a></li>
     </ul>
   </nav>
 
@@ -69,44 +68,6 @@
 
       <ng-container *ngFor="let t of groups.invasiva">
         <div class="detail" *ngIf="active.invasiva === t.id" [id]="'detail-' + t.id" role="region" [attr.aria-label]="t.title">
-          <div class="detail-grid">
-            <div class="detail-photo" [attr.aria-label]="t.image ? 'Imagen de ' + t.title : 'Espacio reservado para imagen de ' + t.title">
-              <img *ngIf="t.image" [src]="t.image" [alt]="'Imagen de ' + t.title" loading="lazy" />
-            </div>
-            <div class="detail-info">
-              <h4 class="detail-title">{{ t.title }}</h4>
-              <p class="detail-text">{{ t.description }}</p>
-            </div>
-          </div>
-        </div>
-      </ng-container>
-    </div>
-  </section>
-
-  <!-- Grupo: Pilates -->
-  <section class="band band--pilates" id="pilates-terapeutico">
-    <div class="band-inner">
-      <h3 class="band-title">Pilates</h3>
-      <p class="band-text">
-        Enfoque terapéutico del método Pilates para mejorar control motor, fuerza y postura,
-         con ejercicios adaptados a cada persona y lesión. Grupos reducidos, dirigidos por un 
-         fisioterapeuta experto en pilates terapéutico.
-      </p>
-      <ul class="group-list" role="list">
-        <li *ngFor="let t of groups.pilates">
-          <button type="button"
-                  class="chip"
-                  [class.active]="active.pilates === t.id"
-                  (click)="select('pilates', t.id)"
-                  [attr.aria-expanded]="active.pilates === t.id"
-                  [attr.aria-controls]="'detail-' + t.id">
-            {{ t.title }}
-          </button>
-        </li>
-      </ul>
-
-      <ng-container *ngFor="let t of groups.pilates">
-        <div class="detail" *ngIf="active.pilates === t.id" [id]="'detail-' + t.id" role="region" [attr.aria-label]="t.title">
           <div class="detail-grid">
             <div class="detail-photo" [attr.aria-label]="t.image ? 'Imagen de ' + t.title : 'Espacio reservado para imagen de ' + t.title">
               <img *ngIf="t.image" [src]="t.image" [alt]="'Imagen de ' + t.title" loading="lazy" />

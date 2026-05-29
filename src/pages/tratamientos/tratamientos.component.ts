@@ -94,8 +94,6 @@ export class TratamientosComponent implements OnInit {
   ngOnInit(): void {
     // Añadir imagen al tratamiento de Drenaje linfático
     
-    // Añadir imagen al tratamiento de Pilates terapéutico
-    
     this.active.general = this.groups.general[0]?.id ?? null;
     this.active.invasiva = this.groups.invasiva[0]?.id ?? null;
   }
