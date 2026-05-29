@@ -9,9 +9,11 @@
     (click)="toggleMenu()"
     [attr.aria-expanded]="isOpen"
     aria-controls="main-nav"
-    [attr.aria-label]="isOpen ? 'Cerrar menï¿½' : 'Abrir menï¿½'"
+    [attr.aria-label]="isOpen ? 'Cerrar menú' : 'Abrir menú'"
   >
-    <img src="assets/Instagram.png" alt="" class="menu-icon" aria-hidden="true" />
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
   </button>
 
   <ul id="main-nav" class="nav-list" [class.open]="isOpen">

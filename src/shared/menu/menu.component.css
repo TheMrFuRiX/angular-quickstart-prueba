@@ -1,5 +1,5 @@
-﻿/* =========================
-   MENÚ PRINCIPAL
+/* =========================
+   MENU PRINCIPAL
 ========================= */
 .menu {
   position: relative;
@@ -13,7 +13,7 @@
   gap: var(--menu-gap);
   padding: 12px 18px;
   box-shadow: var(--menu-shadow);
-  --menu-em: #1e5aa8; /* azul tipo logo ajustado */
+  --menu-em: #1e5aa8;
 }
 
 /* =========================
@@ -61,7 +61,7 @@
 }
 
 /* =========================
-   BOTONES DE NAVEGACIÓN
+   BOTONES DE NAVEGACION
 ========================= */
 .nav-list {
   list-style: none;
@@ -109,7 +109,7 @@
 }
 
 /* =========================
-   BOTÓN HAMBURGUESA (responsive)
+   BOTON HAMBURGUESA (responsive)
 ========================= */
 .menu-toggle {
   border: 0;
@@ -120,37 +120,26 @@
   justify-content: center;
   cursor: pointer;
   padding: 8px;
-  margin-left: auto; /* en móvil se sitúa a la derecha */
+  margin-left: auto;
   width: 44px;
-  height: 44px; /* objetivo táctil cómodo */
+  height: 44px;
+  border-radius: 10px;
 }
+
+.menu-toggle:hover { background: rgba(255,255,255,0.12); }
 
 .menu-toggle:focus-visible {
   outline: 2px solid var(--menu-em);
   outline-offset: 2px;
-  border-radius: 6px;
+  border-radius: 10px;
 }
 
-.menu-toggle .bar {
+.menu-icon {
   width: 26px;
-  height: 2px;
-  background: var(--menu-text);
+  height: 26px;
+  object-fit: contain;
   display: block;
-  margin: 6px 0; /* separa las 3 líneas */
-  border-radius: 2px;
-  transition: transform 0.25s ease, opacity 0.2s ease, background 0.25s ease;
-  transform-origin: 50% 50%;
-}
-
-/* En estado abierto mantenemos 3 líneas paralelas (sin animación a X) */
-.menu-toggle[aria-expanded="true"] .bar {
-  background: var(--menu-text);
-  opacity: 1;
-  transform: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .menu-toggle .bar { transition: none; }
+  filter: brightness(0) invert(1);
 }
 
 /* =========================
@@ -171,7 +160,7 @@
     padding: 8px 12px;
   }
 
-  /* Mostrar hamburguesa y menú desplegable */
+  /* Mostrar hamburguesa y menu desplegable */
   .menu-toggle {
     display: inline-flex;
   }
@@ -201,5 +190,3 @@
     padding: 12px 16px;
   }
 }
-
-

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-type GroupKey = 'general' | 'invasiva' | 'pilates';
+type GroupKey = 'general' | 'invasiva';
 interface Treatment { id: string; title: string; description: string; image?: string }
 
 @Component({
@@ -74,22 +74,12 @@ export class TratamientosComponent implements OnInit {
         description:
           'Estimulación eléctrica a través de agujas en puntos musculares y miofasciales para reducir el dolor y el espasmo, mejorar la irrigación y la función. Útil en puntos gatillo, dolor crónico y sobrecargas; complementa la terapia manual y el ejercicio.'
       }
-    ],
-    pilates: [
-      {
-        image: 'assets/Pilates.jpg',
-        id: 'pilates-terapeutico',
-        title: 'Pilates terapéutico',
-        description:
-          'Programa individualizado basado en el método Pilates orientado a la rehabilitación. Mejora el control motor, la fuerza del core y la postura, y se adapta a cada persona tras lesiones o cirugías, dolor lumbar/cervical y alteraciones del equilibrio.'
-      }
     ]
   };
 
   active: Record<GroupKey, string | null> = {
     general: null,
     invasiva: null,
-    pilates: null
   };
 
   select(group: GroupKey, id: string) {
@@ -108,6 +98,5 @@ export class TratamientosComponent implements OnInit {
     
     this.active.general = this.groups.general[0]?.id ?? null;
     this.active.invasiva = this.groups.invasiva[0]?.id ?? null;
-    this.active.pilates = this.groups.pilates[0]?.id ?? null;
   }
 }
